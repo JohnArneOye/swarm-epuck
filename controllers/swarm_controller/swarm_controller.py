@@ -20,9 +20,6 @@ class SwarmBot(epb.EpuckBasic):
 			lights = [0 if math.isnan(x) else x for x in lights]
 			print proximities
 			print lights
-			#lights are out of order, (YOU'RE OUT OF ORDER!)
-			lights_order = [4,5,6,7,0,1,2,3]
-			lights = [lights[x] for x in lights_order]
 			data = (proximities,lights)
 			speed = self.robot.update(data)
 			

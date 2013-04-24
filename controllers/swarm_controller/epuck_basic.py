@@ -224,7 +224,10 @@ class EpuckBasic (DifferentialWheels):
 	def get_lights(self):
 		for i in range(self.num_light_sensors):
 			self.light_sensor_values[i] = self.light_sensors[i].getValue()
-		return self.light_sensor_values
+		#lights are out of order, (YOU'RE OUT OF ORDER!)
+		lights_order = [4,5,6,7,0,1,2,3]
+		lights = [self.light_sensor_values[x] for x in lights_order]
+		return lights
 
 	# This is the high-level routine for getting camera images; just call it directly from your code and
 	# then prepare to deal with the "Image" object that it returns.  This is where you'll need Python's Image module.
